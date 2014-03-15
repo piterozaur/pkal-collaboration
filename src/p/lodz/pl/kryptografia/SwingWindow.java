@@ -3,6 +3,7 @@ package p.lodz.pl.kryptografia;
 import javax.swing.*;
 import java.awt.BorderLayout;
 
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class SwingWindow extends JFrame {
@@ -11,12 +12,15 @@ public class SwingWindow extends JFrame {
 	protected JTextField textField;
 	protected JTextPane txtpnTuWpiszTekst;
 	protected JTextPane txtpnMiejsceNaKryptogram;
-	
+	public static TrippleDESLogic trippleDesLogic;
+
 	/**
 	 * Create the application.
 	 */
 	public SwingWindow() {
 		initialize();
+		
+		trippleDesLogic = new TrippleDESLogic();
 	}
 
 	/**
@@ -46,6 +50,14 @@ public class SwingWindow extends JFrame {
 		JButton btnGenerujKlucz = new JButton("Generuj klucz");
 		btnGenerujKlucz.setBounds(318, 57, 154, 25);
 		getContentPane().add(btnGenerujKlucz);
+		btnGenerujKlucz.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				TrippleDESLogic.generateRandomKeyValue();
+				
+			}
+		});
 		
 		txtpnTuWpiszTekst = new JTextPane();
 		txtpnTuWpiszTekst.setText("Miejsce na tekst jawny");
