@@ -3,11 +3,15 @@ package p.lodz.pl.kryptografia;
 import javax.swing.*;
 import java.awt.BorderLayout;
 
+import java.awt.event.ActionListener;
+
 public class SwingWindow extends JFrame {
 
 	JFrame frame;
-	private JTextField textField;
-
+	protected JTextField textField;
+	protected JTextPane txtpnTuWpiszTekst;
+	protected JTextPane txtpnMiejsceNaKryptogram;
+	
 	/**
 	 * Create the application.
 	 */
@@ -22,7 +26,7 @@ public class SwingWindow extends JFrame {
 		
 		final JPanel panel = new JPanel();
 		
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(510,470);
 		getContentPane().setLayout(null);
 		
@@ -43,7 +47,7 @@ public class SwingWindow extends JFrame {
 		btnGenerujKlucz.setBounds(318, 57, 154, 25);
 		getContentPane().add(btnGenerujKlucz);
 		
-		JTextPane txtpnTuWpiszTekst = new JTextPane();
+		txtpnTuWpiszTekst = new JTextPane();
 		txtpnTuWpiszTekst.setText("Miejsce na tekst jawny");
 		txtpnTuWpiszTekst.setBounds(26, 181, 446, 87);
 		getContentPane().add(txtpnTuWpiszTekst);
@@ -56,13 +60,67 @@ public class SwingWindow extends JFrame {
 		btnDeszyfruj.setBounds(258, 280, 214, 25);
 		getContentPane().add(btnDeszyfruj);
 		
-		JTextPane txtpnMiejsceNaKryptogram = new JTextPane();
+		txtpnMiejsceNaKryptogram = new JTextPane();
 		txtpnMiejsceNaKryptogram.setText("Miejsce na kryptogram");
 		txtpnMiejsceNaKryptogram.setBounds(26, 317, 446, 87);
 		getContentPane().add(txtpnMiejsceNaKryptogram);
-		
-		
 
 		
 	}
+	
+	/**
+	 * Get key text input value
+	 * @return Input field value
+	 */
+	public String getKeyValue() {
+		
+		return textField.getText();
+		
+	}
+	/**
+	 * Set key text input value
+	 */
+	public void setKeyValue(String text) {
+		
+		textField.setText(text);
+		
+	}
+	
+	/**
+	 * Get encrypted text input value
+	 * @return Encrypted input pane value
+	 */
+	public String getEncryptedText() {
+		
+		return txtpnTuWpiszTekst.getText();
+		
+	}
+	/**
+	 * Set encrypted text input value
+	 */
+	public void setEncryptedText(String text) {
+		
+		txtpnTuWpiszTekst.setText(text);
+		
+	}
+	
+	/**
+	 * Get decrypted text input value
+	 * @return Decrypted input pane value
+	 */
+	public String getDecryptedText() {
+		
+		return txtpnMiejsceNaKryptogram.getText();
+	
+	}
+	/**
+	 * Set decrypted text input value
+	 */
+	public void setDecryptedText(String text) {
+		
+		txtpnMiejsceNaKryptogram.setText(text);
+		
+	}
+	
+
 }
