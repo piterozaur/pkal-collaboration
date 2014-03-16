@@ -50,14 +50,7 @@ public class SwingWindow extends JFrame {
 		JButton btnGenerujKlucz = new JButton("Generuj klucz");
 		btnGenerujKlucz.setBounds(318, 57, 154, 25);
 		getContentPane().add(btnGenerujKlucz);
-		btnGenerujKlucz.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				
-				TrippleDESLogic.generateRandomKeyValue();
-				
-			}
-		});
+		btnGenerujKlucz.addActionListener();
 		
 		txtpnTuWpiszTekst = new JTextPane();
 		txtpnTuWpiszTekst.setText("Miejsce na tekst jawny");
@@ -133,6 +126,11 @@ public class SwingWindow extends JFrame {
 		txtpnMiejsceNaKryptogram.setText(text);
 		
 	}
+	
+
+    public void actionPerformed(ActionEvent e) {
+        System.out.print(e.getSource());
+    }  
 	
 
 }

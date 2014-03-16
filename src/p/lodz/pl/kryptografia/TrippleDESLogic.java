@@ -4,7 +4,7 @@ public class TrippleDESLogic extends MainApplication {
 	
 	public TrippleDESLogic() {
 		
-		window.setEncryptedText("Test");
+		//window.setEncryptedText("Test");
 		
 	}
 	
