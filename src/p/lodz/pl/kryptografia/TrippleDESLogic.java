@@ -8,9 +8,9 @@ public class TrippleDESLogic extends MainApplication {
 		
 	}
 	
-	public void generateKeyEvent() {
+	public String generateKeyEvent() {
 		
-		
+		return "Hello world finally";
 		
 	}
 	

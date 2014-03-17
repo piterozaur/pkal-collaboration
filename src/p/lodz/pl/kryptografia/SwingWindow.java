@@ -1,26 +1,34 @@
 package p.lodz.pl.kryptografia;
 
 import javax.swing.*;
-import java.awt.BorderLayout;
+import javax.swing.table.DefaultTableModel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+ 
+ 
+/**
+ * SwingWindow class initializes Swing components, is responsible for view interaction and event listeners.
+ * 
+ * @author Piotr Kluch 165436
+ *
+ */
 public class SwingWindow extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	JFrame frame;
-	protected JTextField textField;
+	protected JTextField textFieldKey;
 	protected JTextPane txtpnTuWpiszTekst;
 	protected JTextPane txtpnMiejsceNaKryptogram;
-	public static TrippleDESLogic trippleDesLogic;
 
 	/**
 	 * Create the application.
 	 */
 	public SwingWindow() {
 		initialize();
-		
-		trippleDesLogic = new TrippleDESLogic();
 	}
 
 	/**
@@ -31,7 +39,7 @@ public class SwingWindow extends JFrame {
 		final JPanel panel = new JPanel();
 		
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(510,470);
+		this.setSize(500,470);
 		getContentPane().setLayout(null);
 		
 		JLabel lblKlucz = new JLabel("Klucz");
@@ -42,15 +50,19 @@ public class SwingWindow extends JFrame {
 		lblSzyfrowanieDeszyfrowanie.setBounds(26, 156, 314, 15);
 		getContentPane().add(lblSzyfrowanieDeszyfrowanie);
 		
-		textField = new JTextField();
-		textField.setBounds(26, 59, 270, 22);
-		getContentPane().add(textField);
-		textField.setColumns(10);
+		textFieldKey = new JTextField();
+		textFieldKey.setBounds(26, 59, 270, 22);
+		getContentPane().add(textFieldKey);
+		textFieldKey.setColumns(10);
 		
 		JButton btnGenerujKlucz = new JButton("Generuj klucz");
 		btnGenerujKlucz.setBounds(318, 57, 154, 25);
 		getContentPane().add(btnGenerujKlucz);
-		btnGenerujKlucz.addActionListener();
+		btnGenerujKlucz.addActionListener(new java.awt.event.ActionListener() {
+	        public void actionPerformed(java.awt.event.ActionEvent evt) {
+	            btnCallbackActionPerformed(evt);
+	        }
+		});
 		
 		txtpnTuWpiszTekst = new JTextPane();
 		txtpnTuWpiszTekst.setText("Miejsce na tekst jawny");
@@ -69,17 +81,53 @@ public class SwingWindow extends JFrame {
 		txtpnMiejsceNaKryptogram.setText("Miejsce na kryptogram");
 		txtpnMiejsceNaKryptogram.setBounds(26, 317, 446, 87);
 		getContentPane().add(txtpnMiejsceNaKryptogram);
+		
+		
+		//New
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(12, 357, 674, 141);
+		panel.add(scrollPane);
+		
+		DefaultTableModel model = new DefaultTableModel(); 
+		JTable table = new JTable(model);
+		scrollPane.setViewportView(table);
+
+		JMenuBar menuBar = new JMenuBar();
+		setJMenuBar(menuBar);
+		
+		JMenu mntmFile = new JMenu("File");
+		menuBar.add(mntmFile);
+		
+		JMenuItem quit = new JMenuItem("Quit");
+		mntmFile.add(quit);
+		quit.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				System.exit(0);
+			}
+        });
 
 		
 	}
 	
+    private void btnCallbackActionPerformed(ActionEvent evt) {
+    	
+    	System.out.print(evt.getSource());
+    	
+    	TrippleDESLogic trippleDESLogic = new TrippleDESLogic(); 
+    	this.setKeyValue( trippleDESLogic.generateKeyEvent() );
+        
+    }
+    
 	/**
 	 * Get key text input value
 	 * @return Input field value
 	 */
 	public String getKeyValue() {
 		
-		return textField.getText();
+		return textFieldKey.getText();
 		
 	}
 	/**
@@ -87,7 +135,7 @@ public class SwingWindow extends JFrame {
 	 */
 	public void setKeyValue(String text) {
 		
-		textField.setText(text);
+		textFieldKey.setText(text);
 		
 	}
 	
