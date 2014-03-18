@@ -2,9 +2,9 @@ package p.lodz.pl.kryptografia.data_encryption_algorithms;
 
 import p.lodz.pl.kryptografia.MainApplication;
 
-public class TrippleDESLogic extends MainApplication {
+public class TripleDESLogic extends MainApplication {
 	
-	public TrippleDESLogic() {
+	public TripleDESLogic() {
 		
 		//window.setEncryptedText("Test");
 		
