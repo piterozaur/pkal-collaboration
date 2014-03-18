@@ -1,11 +1,8 @@
 package p.lodz.pl.kryptografia;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
-
 import p.lodz.pl.kryptografia.data_encryption_algorithms.TripleDESLogic;
 
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
  
@@ -179,7 +176,7 @@ public class SwingWindow extends JFrame {
 				
 					case "Generuj klucz":
 						TripleDESLogic trippleDESLogic = new TripleDESLogic(); 
-						setKeyValue( trippleDESLogic.generateKey() );
+						setKeyValue( trippleDESLogic.generateKeys() );
 			    	break;
 			    	
 					case "Szyfruj":

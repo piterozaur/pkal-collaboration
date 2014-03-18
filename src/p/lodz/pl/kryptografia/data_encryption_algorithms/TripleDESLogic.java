@@ -10,7 +10,7 @@ public class TripleDESLogic extends MainApplication {
 		
 	}
 	
-	public String generateKey() {
+	public String generateKeys() {
 		
 		// TODO Need logic here
 		
