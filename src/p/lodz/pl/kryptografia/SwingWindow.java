@@ -3,6 +3,9 @@ package p.lodz.pl.kryptografia;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 
+import p.lodz.pl.kryptografia.data_encryption_algorithms.TrippleDESLogic;
+
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
  
@@ -16,19 +19,23 @@ import java.awt.event.ActionListener;
 public class SwingWindow extends JFrame {
 
 	/**
-	 * 
+	 * Variables
 	 */
 	private static final long serialVersionUID = 1L;
 	JFrame frame;
 	protected JTextField textFieldKey;
 	protected JTextPane txtpnTuWpiszTekst;
 	protected JTextPane txtpnMiejsceNaKryptogram;
+	private JButton btnGenerujKlucz;
+	private JButton btnEncrypt;
+	private JButton btnDeszyfruj;
 
 	/**
 	 * Create the application.
 	 */
 	public SwingWindow() {
 		initialize();
+		addActionListeners();
 	}
 
 	/**
@@ -36,12 +43,12 @@ public class SwingWindow extends JFrame {
 	 */
 	private void initialize() {
 		
-		final JPanel panel = new JPanel();
-		
+		//Defaults
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(500,470);
+		this.setSize(500,490);
 		getContentPane().setLayout(null);
 		
+		//Real GUI starts here
 		JLabel lblKlucz = new JLabel("Klucz");
 		lblKlucz.setBounds(26, 32, 70, 15);
 		getContentPane().add(lblKlucz);
@@ -55,25 +62,20 @@ public class SwingWindow extends JFrame {
 		getContentPane().add(textFieldKey);
 		textFieldKey.setColumns(10);
 		
-		JButton btnGenerujKlucz = new JButton("Generuj klucz");
+		btnGenerujKlucz = new JButton("Generuj klucz");
 		btnGenerujKlucz.setBounds(318, 57, 154, 25);
 		getContentPane().add(btnGenerujKlucz);
-		btnGenerujKlucz.addActionListener(new java.awt.event.ActionListener() {
-	        public void actionPerformed(java.awt.event.ActionEvent evt) {
-	            btnCallbackActionPerformed(evt);
-	        }
-		});
 		
 		txtpnTuWpiszTekst = new JTextPane();
 		txtpnTuWpiszTekst.setText("Miejsce na tekst jawny");
 		txtpnTuWpiszTekst.setBounds(26, 181, 446, 87);
 		getContentPane().add(txtpnTuWpiszTekst);
 		
-		JButton btnSzyfruj = new JButton("Szyfruj");
-		btnSzyfruj.setBounds(26, 280, 214, 25);
-		getContentPane().add(btnSzyfruj);
+		btnEncrypt = new JButton("Szyfruj");
+		btnEncrypt.setBounds(26, 280, 214, 25);
+		getContentPane().add(btnEncrypt);
 		
-		JButton btnDeszyfruj = new JButton("Deszyfruj");
+		btnDeszyfruj = new JButton("Deszyfruj");
 		btnDeszyfruj.setBounds(258, 280, 214, 25);
 		getContentPane().add(btnDeszyfruj);
 		
@@ -83,16 +85,7 @@ public class SwingWindow extends JFrame {
 		getContentPane().add(txtpnMiejsceNaKryptogram);
 		
 		
-		//New
-		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(12, 357, 674, 141);
-		panel.add(scrollPane);
-		
-		DefaultTableModel model = new DefaultTableModel(); 
-		JTable table = new JTable(model);
-		scrollPane.setViewportView(table);
-
+		//Menu
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
@@ -101,10 +94,11 @@ public class SwingWindow extends JFrame {
 		
 		JMenuItem quit = new JMenuItem("Quit");
 		mntmFile.add(quit);
+		
+		//Inline listener for quit action.
 		quit.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				System.exit(0);
 			}
         });
@@ -112,15 +106,8 @@ public class SwingWindow extends JFrame {
 		
 	}
 	
-    private void btnCallbackActionPerformed(ActionEvent evt) {
-    	
-    	System.out.print(evt.getSource());
-    	
-    	TrippleDESLogic trippleDESLogic = new TrippleDESLogic(); 
-    	this.setKeyValue( trippleDESLogic.generateKeyEvent() );
-        
-    }
     
+    //Getters and setters
 	/**
 	 * Get key text input value
 	 * @return Input field value
@@ -156,7 +143,6 @@ public class SwingWindow extends JFrame {
 		txtpnTuWpiszTekst.setText(text);
 		
 	}
-	
 	/**
 	 * Get decrypted text input value
 	 * @return Decrypted input pane value
@@ -174,11 +160,38 @@ public class SwingWindow extends JFrame {
 		txtpnMiejsceNaKryptogram.setText(text);
 		
 	}
-	
 
-    public void actionPerformed(ActionEvent e) {
-        System.out.print(e.getSource());
-    }  
+	public void addActionListeners() {
+		
+		btnGenerujKlucz.addActionListener(new myEventListener());
+		btnEncrypt.addActionListener(new myEventListener());
+		btnDeszyfruj.addActionListener(new myEventListener());
+		
+	}
 	
+	
+	class myEventListener implements ActionListener {
 
+		public void actionPerformed(ActionEvent e) {
+				//System.out.print(e.getActionCommand());
+			
+				switch (e.getActionCommand()) {
+				
+					case "Generuj klucz":
+						TrippleDESLogic trippleDESLogic = new TrippleDESLogic(); 
+						setKeyValue( trippleDESLogic.generateKey() );
+			    	break;
+			    	
+					case "Szyfruj":
+						TrippleDESLogic trippleDESLogic = new TrippleDESLogic(); 
+						setKeyValue( trippleDESLogic.generateKey() );
+			    	break;
+		    	
+				}
+				
+		}
+		
+	}
+	
+	
 }
