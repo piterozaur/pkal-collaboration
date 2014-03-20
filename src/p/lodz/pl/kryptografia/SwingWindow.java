@@ -20,12 +20,6 @@ public class SwingWindow extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	JFrame frame;
-	protected JTextField textFieldKey;
-	protected JTextPane txtpnTuWpiszTekst;
-	protected JTextPane txtpnMiejsceNaKryptogram;
-	protected JButton btnGenerujKlucz;
-	private JButton btnEncrypt;
-	private JButton btnDeszyfruj;
 
 	/**
 	 * Create the application.
@@ -42,44 +36,29 @@ public class SwingWindow extends JFrame {
 		
 		//Defaults
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(500,490);
+		this.setSize(490,305);
 		getContentPane().setLayout(null);
 		
 		//Real GUI starts here
-		JLabel lblKlucz = new JLabel("Klucz");
-		lblKlucz.setBounds(26, 32, 70, 15);
+		JLabel lblKlucz = new JLabel("Wybierz czynność do wykonania w programie:");
+		lblKlucz.setBounds(26, 24, 362, 15);
 		getContentPane().add(lblKlucz);
 		
-		JLabel lblSzyfrowanieDeszyfrowanie = new JLabel("Szyfrowanie / Deszyfrowanie");
-		lblSzyfrowanieDeszyfrowanie.setBounds(26, 156, 314, 15);
-		getContentPane().add(lblSzyfrowanieDeszyfrowanie);
+		JButton btnAlgorytmSymetrycznyTriple = new JButton("Algorytm symetryczny Triple DES");
+		btnAlgorytmSymetrycznyTriple.setBounds(26, 51, 436, 49);
+		getContentPane().add(btnAlgorytmSymetrycznyTriple);
 		
-		textFieldKey = new JTextField();
-		textFieldKey.setBounds(26, 59, 270, 22);
-		getContentPane().add(textFieldKey);
-		textFieldKey.setColumns(10);
+		JButton btnAlgorytmZGeneratorem = new JButton("Algorytm z generatorem Blum-Micali");
+		btnAlgorytmZGeneratorem.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnAlgorytmZGeneratorem.setBounds(26, 112, 436, 49);
+		getContentPane().add(btnAlgorytmZGeneratorem);
 		
-		btnGenerujKlucz = new JButton("Generuj klucze");
-		btnGenerujKlucz.setBounds(318, 57, 154, 25);
-		getContentPane().add(btnGenerujKlucz);
-		
-		txtpnTuWpiszTekst = new JTextPane();
-		txtpnTuWpiszTekst.setText("Miejsce na tekst jawny");
-		txtpnTuWpiszTekst.setBounds(26, 181, 446, 87);
-		getContentPane().add(txtpnTuWpiszTekst);
-		
-		btnEncrypt = new JButton("Szyfruj");
-		btnEncrypt.setBounds(26, 280, 214, 25);
-		getContentPane().add(btnEncrypt);
-		
-		btnDeszyfruj = new JButton("Deszyfruj");
-		btnDeszyfruj.setBounds(258, 280, 214, 25);
-		getContentPane().add(btnDeszyfruj);
-		
-		txtpnMiejsceNaKryptogram = new JTextPane();
-		txtpnMiejsceNaKryptogram.setText("Miejsce na kryptogram");
-		txtpnMiejsceNaKryptogram.setBounds(26, 317, 446, 87);
-		getContentPane().add(txtpnMiejsceNaKryptogram);
+		JButton btnPodpisCyfrowyZ = new JButton("Podpis cyfrowy przy użyciu algorytmu DSA ");
+		btnPodpisCyfrowyZ.setBounds(26, 173, 436, 49);
+		getContentPane().add(btnPodpisCyfrowyZ);
 		
 		
 		//Menu
@@ -99,15 +78,17 @@ public class SwingWindow extends JFrame {
 				System.exit(0);
 			}
         });
+		
+		JMenu about = new JMenu("Help");
+		menuBar.add(about);
 
-
+		//Inline listener for about action.
+		about.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+        });
 		
 	}
-	
-    
-
-	
-
-	
-	
 }
