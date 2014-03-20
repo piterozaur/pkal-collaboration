@@ -23,7 +23,7 @@ public class SwingWindow extends JFrame {
 	protected JTextField textFieldKey;
 	protected JTextPane txtpnTuWpiszTekst;
 	protected JTextPane txtpnMiejsceNaKryptogram;
-	private JButton btnGenerujKlucz;
+	protected JButton btnGenerujKlucz;
 	private JButton btnEncrypt;
 	private JButton btnDeszyfruj;
 
@@ -32,7 +32,7 @@ public class SwingWindow extends JFrame {
 	 */
 	public SwingWindow() {
 		initialize();
-		addActionListeners();
+		//addActionListeners();
 	}
 
 	/**
@@ -59,7 +59,7 @@ public class SwingWindow extends JFrame {
 		getContentPane().add(textFieldKey);
 		textFieldKey.setColumns(10);
 		
-		btnGenerujKlucz = new JButton("Generuj klucz");
+		btnGenerujKlucz = new JButton("Generuj klucze");
 		btnGenerujKlucz.setBounds(318, 57, 154, 25);
 		getContentPane().add(btnGenerujKlucz);
 		
@@ -100,95 +100,14 @@ public class SwingWindow extends JFrame {
 			}
         });
 
+
 		
 	}
 	
     
-    //Getters and setters
-	/**
-	 * Get key text input value
-	 * @return Input field value
-	 */
-	public String getKeyValue() {
-		
-		return textFieldKey.getText();
-		
-	}
-	/**
-	 * Set key text input value
-	 */
-	public void setKeyValue(String text) {
-		
-		textFieldKey.setText(text);
-		
-	}
-	
-	/**
-	 * Get encrypted text input value
-	 * @return Encrypted input pane value
-	 */
-	public String getEncryptedText() {
-		
-		return txtpnTuWpiszTekst.getText();
-		
-	}
-	/**
-	 * Set encrypted text input value
-	 */
-	public void setEncryptedText(String text) {
-		
-		txtpnTuWpiszTekst.setText(text);
-		
-	}
-	/**
-	 * Get decrypted text input value
-	 * @return Decrypted input pane value
-	 */
-	public String getDecryptedText() {
-		
-		return txtpnMiejsceNaKryptogram.getText();
-	
-	}
-	/**
-	 * Set decrypted text input value
-	 */
-	public void setDecryptedText(String text) {
-		
-		txtpnMiejsceNaKryptogram.setText(text);
-		
-	}
 
-	public void addActionListeners() {
-		
-		btnGenerujKlucz.addActionListener(new myEventListener());
-		btnEncrypt.addActionListener(new myEventListener());
-		btnDeszyfruj.addActionListener(new myEventListener());
-		
-	}
 	
-	
-	class myEventListener implements ActionListener {
 
-		public void actionPerformed(ActionEvent e) {
-				//System.out.print(e.getActionCommand());
-			
-				switch (e.getActionCommand()) {
-				
-					case "Generuj klucz":
-						TripleDESLogic trippleDESLogic = new TripleDESLogic(); 
-						setKeyValue( trippleDESLogic.generateKeys() );
-			    	break;
-			    	
-					case "Szyfruj":
-						//TripleDESLogic trippleDESLogic = new TripleDESLogic(); 
-						//setKeyValue( trippleDESLogic.generateKey() );
-			    	break;
-		    	
-				}
-				
-		}
-		
-	}
 	
 	
 }

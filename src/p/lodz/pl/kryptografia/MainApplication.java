@@ -21,7 +21,7 @@ public class MainApplication {
 			public void run() {
 				try {
 					
-					window = new SwingWindow();
+					window = new ViewController();
 					window.setVisible(true);
 					
 				} catch (Exception e) {
