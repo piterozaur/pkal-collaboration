@@ -3,15 +3,15 @@ package p.lodz.pl.kryptografia;
 import javax.swing.*;
 
 /**
- * TripleDESView class is the JFrame window for this view
+ * BlumMicaliView class is the JFrame window for this view
  * 
  */
-public class TripleDESView extends JFrame {
+public class BlumMicaliView extends JFrame {
 	
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 2L;
 
 	public JTextField key1;
 	public JTextField key2;
@@ -23,9 +23,9 @@ public class TripleDESView extends JFrame {
 	public JButton btnEncrypt;
 	public JButton btnDecrypt;
 	
-	public TripleDESView() {
+	public BlumMicaliView() {
 		
-		setTitle("Szyfrowanie i deszyfrowanie algorytmem symetrycznym Triple DES");
+		setTitle("Szyfrowanie i deszyfrowanie algorytmem z generatorem Blum-Micali");
 		
 		//Defaults
     	//Initialize JFrame

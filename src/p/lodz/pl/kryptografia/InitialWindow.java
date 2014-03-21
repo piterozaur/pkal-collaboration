@@ -2,10 +2,8 @@ package p.lodz.pl.kryptografia;
 
 import javax.swing.*;
 
-import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
- 
  
 /**
  * SwingWindow class initializes Swing components, is responsible for view interaction and event listeners.
@@ -16,10 +14,9 @@ import java.awt.event.ActionListener;
 public class InitialWindow extends JFrame {
 
 	/**
-	 * Variables
+	 * Variables, basically main buttons
 	 */
 	private static final long serialVersionUID = 1L;
-	JFrame frame;
 	protected JButton btnTripleDES;
 	protected JButton btnBlumMicali;
 	protected JButton btnCertificateDSA;
@@ -34,7 +31,7 @@ public class InitialWindow extends JFrame {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
+	 * Initialize the contents of the JFrame and some basics.
 	 */
 	private void initialize() {
 		
@@ -53,7 +50,7 @@ public class InitialWindow extends JFrame {
 		btnTripleDES.setBounds(26, 51, 583, 49);
 		getContentPane().add(btnTripleDES);
 		
-		btnBlumMicali = new JButton("Szyfrowanie i deszyfrowanie algorytmen z generatorem Blum-Micali");
+		btnBlumMicali = new JButton("Szyfrowanie i deszyfrowanie algorytmem z generatorem Blum-Micali");
 		btnBlumMicali.setBounds(26, 112, 583, 49);
 		getContentPane().add(btnBlumMicali);
 		
@@ -87,7 +84,7 @@ public class InitialWindow extends JFrame {
 		about.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(0);
+				//TODO add about
 			}
         });
 		
