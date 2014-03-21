@@ -40,17 +40,7 @@ public class ViewController extends InitialWindow implements ActionListener {
 	        }
 
 	    }
-	    
-	    
-		class newEventListener implements ActionListener {
 
-			public void actionPerformed(ActionEvent e) {
-					
-
-					
-			}
-
-		}
 		
 	
 }

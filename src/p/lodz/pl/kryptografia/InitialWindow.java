@@ -28,7 +28,7 @@ public class InitialWindow extends JFrame {
 	 * Create the application.
 	 */
 	public InitialWindow() {
-		setTitle("Podstawy Kryptografii - Zestaw V [Piotr Kluch, Andrzej Lisowski]");
+		setTitle("Podstawy Kryptografii - Zestaw V"); //[Piotr Kluch, Andrzej Lisowski]
 		initialize();
 		//addActionListeners();
 	}
