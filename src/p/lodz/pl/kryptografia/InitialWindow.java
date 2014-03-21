@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
  
 /**
- * SwingWindow class initializes Swing components, is responsible for view interaction and event listeners.
+ * InitialWindow class initializes Swing components, is responsible for view interaction and event listeners.
  * 
  * @author Piotr Kluch 165436
  *
