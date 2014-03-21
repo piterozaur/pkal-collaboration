@@ -71,7 +71,7 @@ public class TripleDESLogic implements ActionListener {
         	String text = getCiphertextTextarea();
         	
         	//TODO Magic happens here
-        	text = "IT SHOULD BE ENCRYPTED NOW.";
+        	text = "IT SHOULD BE DECRYPTED NOW.";
         	
         	//Set ciphertext
         	setPlaintextTextarea ( text );
