@@ -22,6 +22,7 @@ public class TripleDESView extends JFrame {
 	public JTextField key2;
 	public JTextField key3;
 	public JButton btnGenerateKeys;
+	private JTextArea txtrPlaintext;
 	
 	public TripleDESView() {
 		
@@ -36,30 +37,50 @@ public class TripleDESView extends JFrame {
 		getContentPane().setLayout(null);
 		
 		//Initial GUI starts here
-		JLabel lblKlucz = new JLabel("Wybierz czynność do wykonania w programie:");
-		lblKlucz.setBounds(26, 24, 362, 15);
+		JLabel lblKlucz = new JLabel("Klucze:");
+		lblKlucz.setBounds(26, 24, 159, 15);
 		getContentPane().add(lblKlucz);
 		
 		key1 = new JTextField();
-		key1.setBounds(26, 51, 362, 29);
+		key1.setBounds(26, 51, 159, 29);
 		getContentPane().add(key1);
 		key1.setColumns(10);
 		
 		key2 = new JTextField();
 		key2.setColumns(10);
-		key2.setBounds(26, 92, 362, 29);
+		key2.setBounds(26, 92, 159, 29);
 		getContentPane().add(key2);
 		
 		key3 = new JTextField();
 		key3.setColumns(10);
-		key3.setBounds(26, 133, 362, 29);
+		key3.setBounds(26, 133, 159, 29);
 		getContentPane().add(key3);
 		
 		btnGenerateKeys = new JButton("Generuj klucze");
-		btnGenerateKeys.setBounds(26, 178, 230, 25);
+		btnGenerateKeys.setBounds(26, 174, 159, 25);
 		getContentPane().add(btnGenerateKeys);
 		
+		txtrPlaintext = new JTextArea();
+		txtrPlaintext.setText("Miejsce na tekst jawny");
+		txtrPlaintext.setBounds(214, 51, 159, 148);
+		getContentPane().add(txtrPlaintext);
+		
+		JTextArea txtrCiphertext = new JTextArea();
+		txtrCiphertext.setText("Miejsce na szyfrogram");
+		txtrCiphertext.setBounds(397, 51, 159, 148);
+		getContentPane().add(txtrCiphertext);
+		
+		JButton btnEncrypt = new JButton("Szyfruj ->");
+		btnEncrypt.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
+		btnEncrypt.setBounds(214, 211, 159, 25);
+		getContentPane().add(btnEncrypt);
+		
+		JButton btnDecrypt = new JButton("<- Deszyfruj");
+		btnDecrypt.setBounds(397, 211, 159, 25);
+		getContentPane().add(btnDecrypt);
+		
 	}
-	
-
 }
