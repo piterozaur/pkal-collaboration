@@ -22,7 +22,11 @@ public class TripleDESView extends JFrame {
 	public JTextField key2;
 	public JTextField key3;
 	public JButton btnGenerateKeys;
-	private JTextArea txtrPlaintext;
+	
+	public JTextArea txtrPlaintext;
+	public JTextArea txtrCiphertext;
+	public JButton btnEncrypt;
+	public JButton btnDecrypt;
 	
 	public TripleDESView() {
 		
@@ -37,7 +41,7 @@ public class TripleDESView extends JFrame {
 		getContentPane().setLayout(null);
 		
 		//Initial GUI starts here
-		JLabel lblKlucz = new JLabel("Klucze:");
+		JLabel lblKlucz = new JLabel("Klucze 1, 2 i 3:");
 		lblKlucz.setBounds(26, 24, 159, 15);
 		getContentPane().add(lblKlucz);
 		
@@ -65,20 +69,16 @@ public class TripleDESView extends JFrame {
 		txtrPlaintext.setBounds(214, 51, 159, 148);
 		getContentPane().add(txtrPlaintext);
 		
-		JTextArea txtrCiphertext = new JTextArea();
+		txtrCiphertext = new JTextArea();
 		txtrCiphertext.setText("Miejsce na szyfrogram");
 		txtrCiphertext.setBounds(397, 51, 159, 148);
 		getContentPane().add(txtrCiphertext);
 		
-		JButton btnEncrypt = new JButton("Szyfruj ->");
-		btnEncrypt.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
+		btnEncrypt = new JButton("Szyfruj ->");
 		btnEncrypt.setBounds(214, 211, 159, 25);
 		getContentPane().add(btnEncrypt);
 		
-		JButton btnDecrypt = new JButton("<- Deszyfruj");
+		btnDecrypt = new JButton("<- Deszyfruj");
 		btnDecrypt.setBounds(397, 211, 159, 25);
 		getContentPane().add(btnDecrypt);
 		

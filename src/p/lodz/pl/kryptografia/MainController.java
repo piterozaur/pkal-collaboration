@@ -8,9 +8,9 @@ import javax.swing.JFrame;
 import p.lodz.pl.kryptografia.data_encryption_algorithms.TripleDESLogic;
 
 
-public class ViewController extends InitialWindow implements ActionListener {
+public class MainController extends InitialWindow implements ActionListener {
 		
-	public ViewController() {
+	public MainController() {
 		
 		addActionListeners();
 		

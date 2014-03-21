@@ -12,7 +12,7 @@ import java.awt.EventQueue;
 
 public class MainApplication {
 	
-	public static ViewController mainController;
+	public static MainController mainController;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -21,8 +21,8 @@ public class MainApplication {
 			public void run() {
 				try {
 					
-					//Run the View controller
-					mainController = new ViewController();
+					//Run the main application controller
+					mainController = new MainController();
 					mainController.setVisible(true);
 					
 				} catch (Exception e) {
