@@ -1,12 +1,25 @@
 package p.lodz.pl.kryptografia.data_encryption_algorithms;
 
-import p.lodz.pl.kryptografia.MainApplication;
+import javax.swing.JFrame;
 
-public class TripleDESLogic extends MainApplication {
+import p.lodz.pl.kryptografia.TripleDESView;
+
+
+public class TripleDESLogic {
 	
 	public TripleDESLogic() {
+
+    	//Initialize JDialog for TripleDESView
+    	// Create new JDialog-like window
+    	TripleDESView tripleDESView = new TripleDESView();
+
 		
-		//window.setEncryptedText("Test");
+		if ( tripleDESView.saveData ) {
+			
+			//theModel.insertNewEvent(location, description, date, alertDate, alert);
+			//refreshCurrentView();
+			
+		}
 		
 	}
 	

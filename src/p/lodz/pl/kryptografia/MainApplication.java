@@ -12,7 +12,7 @@ import java.awt.EventQueue;
 
 public class MainApplication {
 	
-	public static SwingWindow window;
+	public static ViewController mainController;
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -21,8 +21,9 @@ public class MainApplication {
 			public void run() {
 				try {
 					
-					window = new ViewController();
-					window.setVisible(true);
+					//Run the View controller
+					mainController = new ViewController();
+					mainController.setVisible(true);
 					
 				} catch (Exception e) {
 					e.printStackTrace();

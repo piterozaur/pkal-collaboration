@@ -1,8 +1,8 @@
 package p.lodz.pl.kryptografia;
 
 import javax.swing.*;
-import p.lodz.pl.kryptografia.data_encryption_algorithms.TripleDESLogic;
 
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
  
@@ -13,18 +13,22 @@ import java.awt.event.ActionListener;
  * @author Piotr Kluch 165436
  *
  */
-public class SwingWindow extends JFrame {
+public class InitialWindow extends JFrame {
 
 	/**
 	 * Variables
 	 */
 	private static final long serialVersionUID = 1L;
 	JFrame frame;
+	protected JButton btnTripleDES;
+	protected JButton btnBlumMicali;
+	protected JButton btnCertificateDSA;
 
 	/**
 	 * Create the application.
 	 */
-	public SwingWindow() {
+	public InitialWindow() {
+		setTitle("Podstawy Kryptografii - Zestaw V [Piotr Kluch, Andrzej Lisowski]");
 		initialize();
 		//addActionListeners();
 	}
@@ -36,29 +40,26 @@ public class SwingWindow extends JFrame {
 		
 		//Defaults
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		this.setSize(490,305);
+		this.setSize(635,305);
+		this.setLocation(200,200);
 		getContentPane().setLayout(null);
 		
-		//Real GUI starts here
+		//Initial GUI starts here
 		JLabel lblKlucz = new JLabel("Wybierz czynność do wykonania w programie:");
 		lblKlucz.setBounds(26, 24, 362, 15);
 		getContentPane().add(lblKlucz);
 		
-		JButton btnAlgorytmSymetrycznyTriple = new JButton("Algorytm symetryczny Triple DES");
-		btnAlgorytmSymetrycznyTriple.setBounds(26, 51, 436, 49);
-		getContentPane().add(btnAlgorytmSymetrycznyTriple);
+		btnTripleDES = new JButton("Szyfrowanie i deszyfrowanie algorytmem symetrycznym Triple DES");
+		btnTripleDES.setBounds(26, 51, 583, 49);
+		getContentPane().add(btnTripleDES);
 		
-		JButton btnAlgorytmZGeneratorem = new JButton("Algorytm z generatorem Blum-Micali");
-		btnAlgorytmZGeneratorem.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
-		btnAlgorytmZGeneratorem.setBounds(26, 112, 436, 49);
-		getContentPane().add(btnAlgorytmZGeneratorem);
+		btnBlumMicali = new JButton("Szyfrowanie i deszyfrowanie algorytmen z generatorem Blum-Micali");
+		btnBlumMicali.setBounds(26, 112, 583, 49);
+		getContentPane().add(btnBlumMicali);
 		
-		JButton btnPodpisCyfrowyZ = new JButton("Podpis cyfrowy przy użyciu algorytmu DSA ");
-		btnPodpisCyfrowyZ.setBounds(26, 173, 436, 49);
-		getContentPane().add(btnPodpisCyfrowyZ);
+		btnCertificateDSA = new JButton("Generowanie i sprawdzanie podpisu cyfrowyego przy użyciu algorytmu DSA ");
+		btnCertificateDSA.setBounds(26, 173, 583, 49);
+		getContentPane().add(btnCertificateDSA);
 		
 		
 		//Menu
