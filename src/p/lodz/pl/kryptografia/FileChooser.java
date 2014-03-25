@@ -92,6 +92,14 @@ public class FileChooser extends JPanel
         add(logScrollPane, BorderLayout.CENTER);
     }
 
+    /**
+     * Jesli wczytujemy byte, zwraca nam String
+     * Jesli wczytujemy String, zwraca nam String.
+     * 
+     * TODO wczytywanie do edycji.
+     * 
+     * @return
+     */
     public String[] openDialog() {
 
         //Create a file chooser
@@ -125,6 +133,12 @@ public class FileChooser extends JPanel
     
     }
     
+    /**
+     * Zapisywanie -> Jesli zapisujemy typ byte, to zwyczajnie przekazujemy zmienna byte.
+     * Jesli natomiast zapisujemy typ String i/lub konkatenacje kilku stringow, nalezy przekazac string w postaci byte, czyli np. test.getByte();
+     * 
+     * @param dane
+     */
     public void saveDialog(byte dane[]) {
 
         //Create a file chooser
