@@ -22,6 +22,9 @@ public class TripleDESView extends JFrame {
 	public JTextArea txtrCiphertext;
 	public JButton btnEncrypt;
 	public JButton btnDecrypt;
+
+	public JButton btnOpenKeys;
+	public JButton btnSaveKeys;
 	
 	public TripleDESView() {
 		
@@ -76,6 +79,16 @@ public class TripleDESView extends JFrame {
 		btnDecrypt = new JButton("<- Deszyfruj");
 		btnDecrypt.setBounds(397, 211, 159, 25);
 		getContentPane().add(btnDecrypt);
+		
+		btnOpenKeys = new JButton("Wczytaj klucze");
+		btnOpenKeys.setBounds(26, 211, 159, 25);
+		getContentPane().add(btnOpenKeys);
+		
+		btnSaveKeys = new JButton("Zapicz klucze");
+		btnSaveKeys.setBounds(26, 236, 159, 25);
+		getContentPane().add(btnSaveKeys);
+		
+
 		
 	}
 }

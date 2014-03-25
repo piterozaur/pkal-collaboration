@@ -2,6 +2,8 @@ package p.lodz.pl.kryptografia;
 
 import java.awt.EventQueue;
 
+import javax.swing.UIManager;
+
 /**
  * The very top class.
  * 
@@ -21,6 +23,9 @@ public class MainApplication {
 			public void run() {
 				try {
 					
+					//Turn off irritating boldness of swing metal theme
+					UIManager.put("swing.boldMetal", Boolean.FALSE); 
+
 					//Run the main application controller
 					mainController = new MainController();
 					mainController.setVisible(true);
