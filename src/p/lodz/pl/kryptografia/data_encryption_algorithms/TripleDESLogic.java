@@ -40,6 +40,11 @@ public class TripleDESLogic implements ActionListener {
 		
 		theView.btnOpenKeys.addActionListener(this);
 		theView.btnSaveKeys.addActionListener(this);
+		
+		theView.btnReadPlaintextFile.addActionListener(this);
+		theView.btnReadCiphertextFile.addActionListener(this);
+		theView.btnWritePlaintextFile.addActionListener(this);
+		theView.btnWriteCiphertextFile.addActionListener(this);
 
 	}
 	
@@ -89,8 +94,8 @@ public class TripleDESLogic implements ActionListener {
         	
         	//New FileChooser open
         	FileChooser fc = new FileChooser();
-        	String returnValue[] = fc.openDialog();
-        	System.out.print(returnValue[0]);
+        	String returnValue[] = fc.openDialogKeys();
+        	//System.out.print(returnValue[0]);
         	
         	//Assign keys
         	setKeys(returnValue[0], returnValue[1], returnValue[2]);
@@ -104,8 +109,51 @@ public class TripleDESLogic implements ActionListener {
         	
         	//New FileChooser save
         	FileChooser fc = new FileChooser();
-        	fc.saveDialog(saveBuffer.getBytes());
+        	fc.saveDialogKeys(saveBuffer.getBytes());
         	
+        }
+        
+        if ( event.getSource() == theView.btnReadPlaintextFile ) {
+        	
+        	//Choose file
+        	FileChooser fc = new FileChooser();
+        	String returnValue = fc.openDialog();
+        	
+        	//Set textarea
+        	setPlaintextTextarea(returnValue);
+        	
+        }
+        
+        
+        if ( event.getSource() == theView.btnReadCiphertextFile ) {
+        	
+        	//Choose file
+        	FileChooser fc = new FileChooser();
+        	String returnValue = fc.openDialog();
+        	
+        	//Set textarea
+        	setCiphertextTextarea(returnValue);
+        	
+        }
+
+        if ( event.getSource() == theView.btnWritePlaintextFile ) {
+        	
+        	//Get textarea
+        	String saveBuffer = getPlaintextTextarea();
+        	
+        	//Write to file
+        	FileChooser fc = new FileChooser();
+        	fc.saveDialogKeys(saveBuffer.getBytes());        	
+        }
+        
+        if ( event.getSource() == theView.btnWriteCiphertextFile ) {
+        	
+        	//Get textarea
+        	String saveBuffer = getCiphertextTextarea();
+        	
+        	//Write to file
+        	FileChooser fc = new FileChooser();
+        	fc.saveDialogKeys(saveBuffer.getBytes());        	
         }
         
     }

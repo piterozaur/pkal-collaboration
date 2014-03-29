@@ -50,57 +50,15 @@ public class FileChooser extends JPanel
     JFileChooser fc;
 
     public FileChooser() {
-        super(new BorderLayout());
 
-        //Create the log first, because the action listeners
-        //need to refer to it.
-        log = new JTextArea(5,20);
-        log.setMargin(new Insets(5,5,5,5));
-        log.setEditable(false);
-        JScrollPane logScrollPane = new JScrollPane(log);
-
-        //Create a file chooser
-        fc = new JFileChooser();
-
-        //Uncomment one of the following lines to try a different
-        //file selection mode.  The first allows just directories
-        //to be selected (and, at least in the Java look and feel,
-        //shown).  The second allows both files and directories
-        //to be selected.  If you leave these lines commented out,
-        //then the default mode (FILES_ONLY) will be used.
-        //
-        //fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        //fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
-
-        //Create the open button.  We use the image from the JLF
-        //Graphics Repository (but we extracted it from the jar).
-        openButton = new JButton("Open a File...");
-        openButton.addActionListener(this);
-
-        //Create the save button.  We use the image from the JLF
-        //Graphics Repository (but we extracted it from the jar).
-        saveButton = new JButton("Save a File...");
-        saveButton.addActionListener(this);
-
-        //For layout purposes, put the buttons in a separate panel
-        JPanel buttonPanel = new JPanel(); //use FlowLayout
-        buttonPanel.add(openButton);
-        buttonPanel.add(saveButton);
-
-        //Add the buttons and the log to this panel.
-        add(buttonPanel, BorderLayout.PAGE_START);
-        add(logScrollPane, BorderLayout.CENTER);
     }
 
     /**
-     * Jesli wczytujemy byte, zwraca nam String
-     * Jesli wczytujemy String, zwraca nam String.
+     * Open dialog, choose keys file, then return table with 3 keys inside.
      * 
-     * TODO wczytywanie do edycji.
-     * 
-     * @return
+     * @return String[] tab
      */
-    public String[] openDialog() {
+    public String[] openDialogKeys() {
 
         //Create a file chooser
         fc = new JFileChooser();
@@ -135,7 +93,77 @@ public class FileChooser extends JPanel
     
     /**
      * Zapisywanie -> Jesli zapisujemy typ byte, to zwyczajnie przekazujemy zmienna byte.
-     * Jesli natomiast zapisujemy typ String i/lub konkatenacje kilku stringow, nalezy przekazac string w postaci byte, czyli np. test.getByte();
+     * Jesli natomiast mamy zamiar zapisac typ String i/lub konkatenacje kilku stringow, nalezy przekazac string w postaci byte, czyli np. test.getByte();
+     * 
+     * @param dane
+     */
+    public void saveDialogKeys(byte dane[]) {
+
+        //Create a file chooser
+        fc = new JFileChooser();
+        
+        fc.setVisible(true);
+        
+        int returnVal = fc.showSaveDialog(FileChooser.this);
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            //This is where a real application would save the file.
+            
+            String path = file.getPath();
+            
+            try {
+				FileSystemIO.zapiszDoPliku(dane, path);
+				//System.out.print(tab[1]);
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}   
+            
+            log.append("Saving: " + file.getName() + "." + newline);
+        } else {
+            log.append("Save command cancelled by user." + newline);
+        }
+        log.setCaretPosition(log.getDocument().getLength());
+    
+    }
+    
+    /**
+     * Open dialog and get file contents
+     * @return String contents
+     */
+    public String openDialog() {
+
+        //Create a file chooser
+        fc = new JFileChooser();
+        
+        fc.setVisible(true);
+        
+        int returnVal = fc.showOpenDialog(FileChooser.this);
+
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            File file = fc.getSelectedFile();
+            
+            String path = file.getPath();
+            try {
+				String contents = new String(FileSystemIO.wczytajZPliku(path));
+				return contents;
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}     
+            
+            log.append("Opening: " + file.getName() + "." + newline);
+        } else {
+            log.append("Open command cancelled by user." + newline);
+        }
+        log.setCaretPosition(log.getDocument().getLength());
+        
+		return null;
+    
+    }
+    
+    /**
+     * Works same as saveDialogKeys, but could change in future.
      * 
      * @param dane
      */

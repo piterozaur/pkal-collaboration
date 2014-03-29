@@ -1,9 +1,11 @@
 package p.lodz.pl.kryptografia;
 
 import javax.swing.*;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
+import java.awt.Window;
 
 /**
  * TripleDESView class is the JFrame window for this view
@@ -28,6 +30,11 @@ public class TripleDESView extends JFrame {
 
 	public JButton btnOpenKeys;
 	public JButton btnSaveKeys;
+
+	public JButton btnReadPlaintextFile;
+	public JButton btnWritePlaintextFile;
+	public JButton btnReadCiphertextFile;
+	public JButton btnWriteCiphertextFile;
 	
 	public TripleDESView() {
 		
@@ -62,10 +69,6 @@ public class TripleDESView extends JFrame {
 		getContentPane().add(key3);
 		
 		btnGenerateKeys = new JButton("Generuj klucze");
-		btnGenerateKeys.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-			}
-		});
 		btnGenerateKeys.setBounds(23, 211, 159, 25);
 		getContentPane().add(btnGenerateKeys);
 		
@@ -95,21 +98,21 @@ public class TripleDESView extends JFrame {
 		btnSaveKeys.setBounds(23, 273, 159, 25);
 		getContentPane().add(btnSaveKeys);
 		
-		JButton btnWczytajPlikJawny = new JButton("Wczytaj plik jawny");
-		btnWczytajPlikJawny.setBounds(218, 248, 187, 25);
-		getContentPane().add(btnWczytajPlikJawny);
+		btnReadPlaintextFile = new JButton("Wczytaj plik jawny");
+		btnReadPlaintextFile.setBounds(218, 248, 187, 25);
+		getContentPane().add(btnReadPlaintextFile);
 		
-		JButton btnZapiszPlikJawny = new JButton("Zapisz plik jawny");
-		btnZapiszPlikJawny.setBounds(218, 273, 187, 25);
-		getContentPane().add(btnZapiszPlikJawny);
+		btnWritePlaintextFile = new JButton("Zapisz plik jawny");
+		btnWritePlaintextFile.setBounds(218, 273, 187, 25);
+		getContentPane().add(btnWritePlaintextFile);
 		
-		JButton btnWczytajPlikZaszyfrowany = new JButton("Wczytaj plik szyfrowany");
-		btnWczytajPlikZaszyfrowany.setBounds(428, 248, 188, 25);
-		getContentPane().add(btnWczytajPlikZaszyfrowany);
+		btnReadCiphertextFile = new JButton("Wczytaj plik szyfrowany");
+		btnReadCiphertextFile.setBounds(428, 248, 188, 25);
+		getContentPane().add(btnReadCiphertextFile);
 		
-		JButton btnZapiszPlikSzyfrowany = new JButton("Zapisz plik szyfrowany");
-		btnZapiszPlikSzyfrowany.setBounds(428, 273, 188, 25);
-		getContentPane().add(btnZapiszPlikSzyfrowany);
+		btnWriteCiphertextFile = new JButton("Zapisz plik szyfrowany");
+		btnWriteCiphertextFile.setBounds(428, 273, 188, 25);
+		getContentPane().add(btnWriteCiphertextFile);
 		
 		JPanel panel = new JPanel();
 		panel.setBackground(new Color(204, 204, 204));
