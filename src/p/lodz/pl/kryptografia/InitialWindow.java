@@ -34,7 +34,7 @@ public class InitialWindow extends JFrame {
 	 * Initialize the contents of the JFrame and some basics.
 	 */
 	private void initialize() {
-		
+				
 		//Defaults
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setSize(635,305);

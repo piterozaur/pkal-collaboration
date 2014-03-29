@@ -4,6 +4,10 @@ import p.lodz.pl.kryptografia.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFileChooser;
+
+import javax.swing.*;
+
 public class TripleDESLogic implements ActionListener {
 	
 	protected TripleDESView theView;
@@ -33,6 +37,9 @@ public class TripleDESLogic implements ActionListener {
 		theView.btnGenerateKeys.addActionListener(this);
 		theView.btnEncrypt.addActionListener(this);
 		theView.btnDecrypt.addActionListener(this);
+		
+		theView.btnOpenKeys.addActionListener(this);
+		theView.btnSaveKeys.addActionListener(this);
 
 	}
 	
@@ -77,7 +84,30 @@ public class TripleDESLogic implements ActionListener {
         	setPlaintextTextarea ( text );
 
         }
-
+        
+        if ( event.getSource() == theView.btnOpenKeys ) {
+        	
+        	//New FileChooser open
+        	FileChooser fc = new FileChooser();
+        	String returnValue[] = fc.openDialog();
+        	System.out.print(returnValue[0]);
+        	
+        	//Assign keys
+        	setKeys(returnValue[0], returnValue[1], returnValue[2]);
+        	
+        }
+        
+        if ( event.getSource() == theView.btnSaveKeys ) {
+        	
+        	//Get keys
+        	String saveBuffer = theView.key1.getText() + '\n' + theView.key2.getText() + '\n' + theView.key3.getText();
+        	
+        	//New FileChooser save
+        	FileChooser fc = new FileChooser();
+        	fc.saveDialog(saveBuffer.getBytes());
+        	
+        }
+        
     }
 
 	
