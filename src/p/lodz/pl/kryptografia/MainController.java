@@ -1,6 +1,6 @@
 package p.lodz.pl.kryptografia;
-import p.lodz.pl.kryptografia.data_encryption_algorithms.BlumMicaliLogic;
-import p.lodz.pl.kryptografia.data_encryption_algorithms.TripleDESLogic;
+
+import p.lodz.pl.kryptografia.data_encryption_algorithms.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,10 +33,17 @@ public class MainController extends InitialWindow implements ActionListener {
         	
         }
         
-    	//Initialize TripleDESLogic (and the corelated view is a chained reaction as well)
+    	//Initialize
         if (event.getSource() == btnBlumMicali) {
         	
         	BlumMicaliLogic blumMicaliLogic = new BlumMicaliLogic();
+        	
+        }
+        
+        //Initialize
+        if (event.getSource() == btnCertificateDSA) {
+        	
+        	SignatureRSALogic signatureRSALogic = new SignatureRSALogic();
         	
         }
 
