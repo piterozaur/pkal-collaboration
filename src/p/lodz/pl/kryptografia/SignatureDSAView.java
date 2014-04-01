@@ -13,7 +13,7 @@ import java.awt.Window;
  * TripleDESView class is the JFrame window for this view
  * 
  */
-public class SignatureRSAView extends JFrame {
+public class SignatureDSAView extends JFrame {
 	
 	/**
 	 * 
@@ -42,9 +42,9 @@ public class SignatureRSAView extends JFrame {
 	private JLabel lblKluczPublicznyY;
 
 	
-	public SignatureRSAView() {
+	public SignatureDSAView() {
 		
-		setTitle("Szyfrowanie i deszyfrowanie algorytmem symetrycznym Triple DES");
+		setTitle("Generowanie i sprawdzanie podpisu cyfrowyego przy użyciu algorytmu DSA");
 		
 		//Defaults
     	//Initialize JFrame

@@ -8,18 +8,18 @@ import javax.swing.JFileChooser;
 
 import javax.swing.*;
 
-public class SignatureRSALogic implements ActionListener {
+public class SignatureDSALogic implements ActionListener {
 	
-	protected SignatureRSAView theView;
+	protected SignatureDSAView theView;
 	
 	
 	/**
 	 * Constructor
 	 */
-	public SignatureRSALogic() {
+	public SignatureDSALogic() {
 		
 		//Create the view
-    	theView = new SignatureRSAView();
+    	theView = new SignatureDSAView();
 		
     	//Add action listeners to the view
     	addActionListeners();

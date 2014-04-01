@@ -50,11 +50,11 @@ public class InitialWindow extends JFrame {
 		btnTripleDES.setBounds(26, 51, 583, 49);
 		getContentPane().add(btnTripleDES);
 		
-		btnBlumMicali = new JButton("Szyfrowanie i deszyfrowanie algorytmem z generatorem Blum-Micali");
+		btnBlumMicali = new JButton("Szyfrowanie i deszyfrowanie szyfrem strumieniowym z generatorem Blum-Micali");
 		btnBlumMicali.setBounds(26, 112, 583, 49);
 		getContentPane().add(btnBlumMicali);
 		
-		btnCertificateDSA = new JButton("Generowanie i sprawdzanie podpisu cyfrowyego przy użyciu algorytmu DSA ");
+		btnCertificateDSA = new JButton("Generowanie i sprawdzanie podpisu cyfrowyego przy użyciu algorytmu DSA");
 		btnCertificateDSA.setBounds(26, 173, 583, 49);
 		getContentPane().add(btnCertificateDSA);
 		

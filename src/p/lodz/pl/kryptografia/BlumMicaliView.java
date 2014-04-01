@@ -25,7 +25,7 @@ public class BlumMicaliView extends JFrame {
 	
 	public BlumMicaliView() {
 		
-		setTitle("Szyfrowanie i deszyfrowanie algorytmem z generatorem Blum-Micali");
+		setTitle("Szyfrowanie i deszyfrowanie szyfrem strumieniowym z generatorem Blum-Micali");
 		
 		//Defaults
     	//Initialize JFrame

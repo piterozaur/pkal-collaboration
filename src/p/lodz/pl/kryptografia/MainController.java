@@ -43,7 +43,7 @@ public class MainController extends InitialWindow implements ActionListener {
         //Initialize
         if (event.getSource() == btnCertificateDSA) {
         	
-        	SignatureRSALogic signatureRSALogic = new SignatureRSALogic();
+        	SignatureDSALogic signatureRSALogic = new SignatureDSALogic();
         	
         }
 
