@@ -16,6 +16,7 @@ public class InitialWindow extends JFrame {
 	/**
 	 * Variables, basically main buttons
 	 */
+	public JFrame frame;
 	private static final long serialVersionUID = 1L;
 	protected JButton btnTripleDES;
 	protected JButton btnBlumMicali;
@@ -63,10 +64,10 @@ public class InitialWindow extends JFrame {
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
-		JMenu mntmFile = new JMenu("File");
+		JMenu mntmFile = new JMenu("Plik");
 		menuBar.add(mntmFile);
 		
-		JMenuItem quit = new JMenuItem("Quit");
+		JMenuItem quit = new JMenuItem("Zamknij");
 		mntmFile.add(quit);
 		
 		//Inline listener for quit action.
@@ -77,14 +78,16 @@ public class InitialWindow extends JFrame {
 			}
         });
 		
-		JMenu about = new JMenu("Help");
-		menuBar.add(about);
-
+		JMenu help = new JMenu("Pomoc");
+		menuBar.add(help);
+		JMenuItem about = new JMenuItem("O programie");
+		help.add(about);
 		//Inline listener for about action.
 		about.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//TODO add about
+				JOptionPane.showMessageDialog(frame, "Podstawy Kryptografii\nZestaw V \n\nWersja: v. 0.0.1\n\nAutorzy:\nAndrzej Lisowski 171131\nPiotr Kluch 165436\n\n", "O programie", JOptionPane.INFORMATION_MESSAGE);
+				
 			}
         });
 		
