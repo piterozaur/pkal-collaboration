@@ -31,19 +31,26 @@ package p.lodz.pl.kryptografia;
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */ 
 
-import java.io.*;
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.filechooser.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
 
-/*
- * FileChooserDemo.java uses these files:
- *   images/Open16.gif
- *   images/Save16.gif
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFileChooser;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+
+/**
+ * Class responsible for choosing files in Swing.
  */
 public class FileChooser extends JPanel
                              implements ActionListener {
+    /**
+     * Generated serial version ID.
+     */
+    private static final long serialVersionUID = 8859211236795104679L;
     static private final String newline = "\n";
     JButton openButton, saveButton;
     JTextArea log;
@@ -131,7 +138,7 @@ public class FileChooser extends JPanel
      * Open dialog and get file contents
      * @return String contents
      */
-    public String openDialog() {
+    public byte[] openDialog() {
 
         //Create a file chooser
         fc = new JFileChooser();
@@ -145,8 +152,11 @@ public class FileChooser extends JPanel
             
             String path = file.getPath();
             try {
-				String contents = new String(FileSystemIO.wczytajZPliku(path));
-				return contents;
+				//String contents = new String(FileSystemIO.wczytajZPliku(path));
+				//return contents;
+            	
+            	return FileSystemIO.wczytajZPliku(path);
+            	
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
 				e1.printStackTrace();

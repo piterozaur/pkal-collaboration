@@ -5,49 +5,46 @@ import p.lodz.pl.kryptografia.data_encryption_algorithms.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * Main controller class.
+ * 
+ * @author <a href="mailto:165436@edu.p.lodz.pl">Piotr Kluch</a>
+ * @author <a href="mailto:171131@edu.p.lodz.pl">Andrzej Lisowski</a>
+ *
+ */
 public class MainController extends InitialWindow implements ActionListener {
 
-	private static final long serialVersionUID = 6178411919826238297L;
+    private static final long serialVersionUID = 6178411919826238297L;
 
-	public MainController() {
+    public MainController() {
+        // Add listeners for main app window
+        addActionListeners();
 
-		//Add listeners for main app window
-		addActionListeners();
-		
-	}
+    }
 
-	public void addActionListeners() {
-		
-		btnTripleDES.addActionListener(this);
-		btnBlumMicali.addActionListener(this);
-		btnCertificateDSA.addActionListener(this);
-		
-	}
-	
-    public void actionPerformed(ActionEvent event){
-    	
-    	//Initialize TripleDESLogic (and the corelated view is a chained reaction as well)
+    public void addActionListeners() {
+        btnTripleDES.addActionListener(this);
+        btnBlumMicali.addActionListener(this);
+        btnCertificateDSA.addActionListener(this);
+
+    }
+
+    public void actionPerformed(ActionEvent event) {
+        // Initialize TripleDESLogic (and the corelated view is a chained reaction as well)
         if (event.getSource() == btnTripleDES) {
-        	
-        	TripleDESLogic tripleDESLogic = new TripleDESLogic();
-        	
+            TripleDESLogic tripleDESLogic = new TripleDESLogic();
         }
-        
-    	//Initialize
+
+        // Initialize
         if (event.getSource() == btnBlumMicali) {
-        	
-        	BlumMicaliLogic blumMicaliLogic = new BlumMicaliLogic();
-        	
+            BlumMicaliLogic blumMicaliLogic = new BlumMicaliLogic();
         }
-        
-        //Initialize
+
+        // Initialize
         if (event.getSource() == btnCertificateDSA) {
-        	
-        	SignatureDSALogic signatureRSALogic = new SignatureDSALogic();
-        	
+            SignatureDSALogic signatureRSALogic = new SignatureDSALogic();
         }
 
     }
-	
-	
+
 }

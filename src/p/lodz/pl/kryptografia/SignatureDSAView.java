@@ -1,26 +1,34 @@
 package p.lodz.pl.kryptografia;
 
-import javax.swing.*;
+import java.awt.Color;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
 import javax.swing.border.EtchedBorder;
 import javax.swing.border.TitledBorder;
 
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Color;
-import java.awt.Window;
-
 /**
- * TripleDESView class is the JFrame window for this view
+ * TripleDESView class is the JFrame window for this view.
+ * 
+ * @author <a href="mailto:165436@edu.p.lodz.pl">Piotr Kluch</a>
+ * @author <a href="mailto:171131@edu.p.lodz.pl">Andrzej Lisowski</a>
  * 
  */
 public class SignatureDSAView extends JFrame {
 	
 	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	public JTextField key1_q_and_g;
+     * Generated serial version ID.
+     */
+    private static final long serialVersionUID = -7966610492893938833L;
+    
+    public JTextField key1_q_and_g;
 	public JTextField key2_y;
 	public JTextField key3_x;
 	public JTextField key4_mod_p;
